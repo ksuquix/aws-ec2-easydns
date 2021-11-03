@@ -1,0 +1,13 @@
+[Unit]
+Description=Push DNS to Route53 on boot
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/ec2-easydns/setup-ec2-easydns.sh
+RemainAfterExit=true
+#ExecStop=/opt/foo/teardown-foo.sh
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
