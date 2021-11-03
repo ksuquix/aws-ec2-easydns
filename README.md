@@ -3,7 +3,7 @@ Sets
 
 HOSTNAME=myhost.example.com
 
-git clone git@github.com:ksuquix/aws-ec2-easydns.git
+git clone https://github.com/ksuquix/aws-ec2-easydns.git
 yum install -y jq
 cd aws-ec2-easydns
 sudo cp ec2-easydns.service /etc/systemd/system/
