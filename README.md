@@ -1,5 +1,31 @@
 # aws-ec2-easydns
-Sets 
+This is a Simple startup script that pushes a A record to route53 on system bootup.
+
+The EC2 instance needs these role permissions:
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ksuquix",
+            "Effect": "Allow",
+            "Action": [
+                "route53:ChangeResourceRecordSets",
+                "route53:ListResourceRecordSets"
+            ],
+            "Resource": "arn:aws:route53:::hostedzone/XXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        {
+            "Sid": "ksuquix2",
+            "Effect": "Allow",
+            "Action": "route53:ListHostedZones",
+            "Resource": "*"
+        }
+    ]
+}
+```
+where XXXXXX is your Hosted zone ID
+
 
 ```bash
 HOSTNAME=myhost.example.com
